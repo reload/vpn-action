@@ -1,0 +1,39 @@
+---
+name: Code quality
+on:
+  - pull_request
+  - push
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  eslint:
+    name: eslint
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: npm install
+        run: |
+          npm ci
+      - name: eslint
+        run: |
+          npm run lint
+  prettier:
+    name: prettier
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: npm clean-install
+        run: |
+          npm ci
+      - name: prettier
+        run: |
+          npm run format:check

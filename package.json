@@ -1,0 +1,17 @@
+{
+  "name": "reload/vpn-action",
+  "version": "1.0.0",
+  "description": "This action sets up a VPN connection in a GitHub Actions workflow.",
+  "license": "MIT",
+  "devDependencies": {
+    "@eslint/js": "^9.9.1",
+    "eslint": "^9.9.1",
+    "globals": "^15.9.0",
+    "prettier": "^3.3.3"
+  },
+  "scripts": {
+    "format:check": "prettier --check '**/*.{json,mjs}'",
+    "format:fix": "prettier --write '**/*.{json,mjs}'",
+    "lint": "eslint ."
+  }
+}
