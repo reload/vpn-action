@@ -1,0 +1,22 @@
+---
+name: Test VPN
+on:
+  - push
+  - workflow_dispatch
+
+jobs:
+  test-vpn:
+    name: Test VPN connection
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./
+        with:
+          server: ${{ vars.RELOAD_HQ_IP }}
+          psk: ${{ secrets.RELOAD_VPN_PSK }}
+          username: ${{ vars.RELOAD_VPN_USERNAME }}
+          password: ${{ secrets.RELOAD_VPN_PASSWORD }}
+          route: 104.18.0.0/15
+      - name: Test VPN connection
+        run: |
+          [ "$(curl --silent https://canhazip.com)" == "${{ vars.RELOAD_HQ_IP }}" ] || exit 1

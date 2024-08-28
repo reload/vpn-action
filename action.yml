@@ -1,0 +1,27 @@
+---
+name: 'Setup VPN connection'
+description: 'Connect Github Actions to VPN'
+author: 'Arne Jørgensen'
+branding:
+  color: green
+  icon: globe
+inputs:
+  server:
+    required: true
+    description: 'VPN server'
+  psk:
+    required: true
+    description: 'VPN pre-shared key'
+  username:
+    required: true
+    description: 'VPN username'
+  password:
+    required: true
+    description: 'VPN password'
+  route:
+    required: true
+    description: 'VPN route'
+runs:
+  using: 'node20'
+  main: 'vpn-up.mjs'
+  post: 'vpn-down.mjs'
