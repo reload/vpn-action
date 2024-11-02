@@ -4,7 +4,7 @@
   "description": "This action sets up a VPN connection in a GitHub Actions workflow.",
   "license": "MIT",
   "devDependencies": {
-    "@eslint/js": "^9.9.1",
+    "@eslint/js": "^9.14.0",
     "eslint": "^9.11.1",
     "globals": "^15.10.0",
     "prettier": "^3.3.3"
