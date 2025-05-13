@@ -6,12 +6,8 @@ updates:
     schedule:
       interval: daily
       timezone: Europe/Copenhagen
-    reviewers:
-      - "reload/developers"
   - package-ecosystem: npm
     directory: "/"
     schedule:
       interval: monthly
       timezone: Europe/Copenhagen
-    reviewers:
-      - "reload/developers"
