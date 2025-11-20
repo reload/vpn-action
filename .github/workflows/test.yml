@@ -11,7 +11,7 @@ jobs:
     name: Test VPN connection
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: ./
         with:
           server: ${{ vars.RELOAD_HQ_IP }}
