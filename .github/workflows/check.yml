@@ -11,12 +11,12 @@ permissions:
 jobs:
   eslint:
     name: eslint
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version-file: '.nvmrc'
       - name: npm install
         run: |
           npm ci
@@ -25,12 +25,12 @@ jobs:
           npm run lint
   prettier:
     name: prettier
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version-file: '.nvmrc'
       - name: npm clean-install
         run: |
           npm ci
