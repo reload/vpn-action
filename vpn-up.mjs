@@ -32,8 +32,8 @@ conn %default
     keyingtries=1
     keyexchange=ikev1
     authby=secret
-    ike=3des-sha1-modp1024
-    esp=3des-sha1
+    ike=aes256-sha256-modp2048,aes256-sha1-modp2048,aes128-sha1-modp2048
+    esp=aes256-sha1,aes128-sha1,aes256-sha256
 
 conn L2TP-PSK
     keyexchange=ikev1
