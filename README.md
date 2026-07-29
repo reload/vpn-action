@@ -2,7 +2,7 @@
 
 This action sets up a VPN connection in a GitHub Actions workflow.
 
->[!NOTE]
+> [!NOTE]
 >
 > - This action is only supported on Linux runners.
 > - This is designed to work with our Unifi VPN. Other VPNs may not work.
@@ -10,11 +10,15 @@ This action sets up a VPN connection in a GitHub Actions workflow.
 Example setup:
 
 ```yaml
-      - uses: reload/vpn-action@main
-        with:
-          server: ${{ vars.RELOAD_HQ_IP }}
-          psk: ${{ secrets.RELOAD_VPN_PSK }}
-          username: ${{ vars.RELOAD_VPN_USERNAME }}
-          password: ${{ secrets.RELOAD_VPN_PASSWORD }}
-          route: 94.23.123.122  # platform.sh FR-3 pr sites
+- uses: reload/vpn-action@main
+  with:
+    server: ${{ vars.RELOAD_HQ_IP }}
+    psk: ${{ secrets.RELOAD_VPN_PSK }}
+    username: ${{ vars.RELOAD_VPN_USERNAME }}
+    password: ${{ secrets.RELOAD_VPN_PASSWORD }}
+    route: 94.23.123.122 # platform.sh FR-3 pr sites
 ```
+
+The IKE/ESP cipher suites proposed to the VPN server can be overridden
+with the optional `ike` and `esp` inputs (comma-separated strongswan
+suites). The defaults match our Unifi Dream Machine Pro gateway.

@@ -21,6 +21,14 @@ inputs:
   route:
     required: true
     description: 'VPN route'
+  ike:
+    required: false
+    description: 'IKE (phase 1) cipher suites to propose'
+    default: 'aes256-sha256-modp2048,aes256-sha1-modp2048,aes128-sha1-modp2048'
+  esp:
+    required: false
+    description: 'ESP (phase 2) cipher suites to propose'
+    default: 'aes256-sha1,aes128-sha1,aes256-sha256'
 runs:
   using: 'node24'
   main: 'vpn-up.mjs'
