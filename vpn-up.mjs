@@ -15,6 +15,10 @@ const username = process.env.INPUT_USERNAME || "<VPN_USERNAME>";
 const password = process.env.INPUT_PASSWORD || "<VPN_PASSWORD>";
 const psk = process.env.INPUT_PSK || "<VPN_PSK>";
 const route = process.env.INPUT_ROUTE || "<VPN_ROUTE>";
+const ike =
+  process.env.INPUT_IKE ||
+  "aes256-sha256-modp2048,aes256-sha1-modp2048,aes128-sha1-modp2048";
+const esp = process.env.INPUT_ESP || "aes256-sha1,aes128-sha1,aes256-sha256";
 
 let ipsecConf = "ipsec.conf";
 let ipsecSecrets = "ipsec.secrets";
@@ -32,8 +36,8 @@ conn %default
     keyingtries=1
     keyexchange=ikev1
     authby=secret
-    ike=3des-sha1-modp1024
-    esp=3des-sha1
+    ike=${ike}
+    esp=${esp}
 
 conn L2TP-PSK
     keyexchange=ikev1
